@@ -11,7 +11,7 @@ setSecHand();
 
 function setHourHand(){
   getCurrentTime();
-  const hrDeg = (hr*365/12).toFixed(2);
+  const hrDeg = ((hr+(min/60))*365/12).toFixed(2);
   hrHand.style.transform = `rotate(${hrDeg}deg)`;
 }
 
@@ -35,19 +35,13 @@ function getCurrentTime(){
 }
 
 // update sec hand every second
-setInterval(function(){
-  setSecHand();
-}, 1000);
+setInterval(setSecHand, 1000);
 
 // update minute hand every 30 second
-setInterval(function(){
-  setMinHand();
-}, 30000);
+setInterval(setMinHand, 30000);
 
 // update hour hand every minute
-setInterval(function(){
-  setHourHand();
-}, 60000);
+setInterval(setHourHand, 60000);
 
 
 
