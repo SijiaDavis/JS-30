@@ -4,3 +4,52 @@ body {
   background: url(../images/bg.jpg);
   background-size: cover;
 }
+
+.clock {
+  height: 500px;
+  width: 500px;
+  margin: 10% auto;
+  border: 20px solid #FFF;
+  border-radius: 50%;
+  position: relative;
+}
+
+.hour {
+  width: 10px;
+  height:160px;
+  position: absolute;
+  transform-origin: bottom left;
+  left: 51%;
+  bottom: 49%;
+  background: black;
+}
+
+.minute {
+  width: 10px;
+  height:180px;
+  position: absolute;
+  transform-origin: bottom left;
+  left: 51%;
+  bottom: 49%;
+  background: #F06292;
+}
+
+.second {
+  width: 4px;
+  height: 220px;
+  position: absolute;
+  transform-origin: bottom left;
+  left: 51%;
+  bottom: 49%;
+  background: #62F079;
+}
+
+.circle {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  left: 48%;
+  top: 47%;
+  border-radius: 50%;
+  background: pink;
+}
