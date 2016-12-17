@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console tricks</title>
+</head>
+<body>
+  <p onclick="makeGreen()">xBREAKxDOWNx</p>
+  
+  <script>
+    // break on attributes modifications
+    const dogs = [{name: 'Onyx', age: 4}, {name: 'Chloe', age: 8}];
+    
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+    
+    // regular console.log
+    console.log("hello");
+    
+    // interpolated
+    console.log(`${dogs[0].name} is ${dogs[0].age} years old`);
+    console.log("Onyx likes to eat %s", "💩");
+    
+    // styled
+    console.log("%c I am some great text", "font-size: 50px");
+  
+    // warning
+    console.warn('OH NO');
+    
+    // error
+    console.error("Something really bad happened!");
+    
+    // info
+    console.info("some info");
+    
+    // testing
+    console.assert(1 === 1, 'That is wrong');
+    
+    // cleaning
+    console.clear();
+    
+    // view DOM elements
+    const p = document.querySelector('p');
+    console.dir(p);
+    
+    // Grouping together
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.groupEnd(`${dog.name}`);
+    });
+    
+    // counting
+    console.count("celia");
+    
+    // timing
+    console.time("fetch data");
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetch data');
+      })
+    
+  </script>
+</body>
+</html>
