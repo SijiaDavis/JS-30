@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Obj and Arrays</title>
+  </head>
+  <body>
+    <script>
+      // start with string, numbers and booleans
+      let age = 100;
+      let age2 = age;
+      console.log(age, age2);
+      age = 200;
+      console.log(age, age2);
+      
+      let name = "celia";
+      let name2 = name
+      name = "cc";
+      console.log(name, name2);
+      
+      // let's say we have an array
+      const players = ['celia', 'wes', 'sarah', 'Bryan'];
+      
+      // and we want to make a copy of this array
+      let players2 = players;
+      players2[0] = 'Sijia';
+      console.log(players, players2);
+      
+      let team = players.slice(); // create a deep copy of the original array
+      
+      // or let team = [].concat(players);
+      
+      // or ES6 spread way: let team = [...players];
+      
+      team[0] = "arwen";
+      console.log(players, team);
+      
+      // with objects
+      const person = {
+        name: 'celia',
+        age: '100'
+      }
+      
+      const person2 = Object.assign({}, person, {age:99});
+      console.log(person, person2);
+      
+      //const person3 = {...person};
+      
+      // to create deep copy, lodash has cloneDeep method. also poor man's deep clone: JSON.parse(JSON.stringify(obj));
+      
+      
+    </script>
+  </body>
+</html>
