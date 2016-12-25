@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CSS text shadow</title>
+    <style>
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+        }
+        
+        h1 {
+            text-shadow: 10px 10px 0 #AED6F1;
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <h1 contenteditable>👩🏻‍💻Celia</h1>
+    </div>
+
+    <script>
+        const hero = document.querySelector(".hero");
+        const text = document.querySelector("h1");
+        const walk = 100;
+
+        function shadow(evt) {
+            const {
+                offsetWidth: width,
+                offsetHeight: height
+            } = hero;
+            let {
+                offsetX: x,
+                offsetY: y
+            } = evt;
+
+            if (this !== evt.target) {
+                x = x + evt.target.offsetLeft;
+                y = y + evt.target.offsetTop;
+            }
+
+            const xwalk = Math.round((x / width * walk) - (walk / 2));
+            const ywalk = Math.round((y / height * walk) - (walk / 2));
+
+            text.style.textShadow = `${xwalk}px ${ywalk}px 0 #AED6F1`;
+        }
+
+        hero.addEventListener('mousemove', shadow);
+    </script>
+</body>
+
+</html>
